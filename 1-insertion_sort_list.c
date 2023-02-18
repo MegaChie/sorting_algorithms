@@ -4,7 +4,7 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t rounds, *invalue, *temp;
+	listint_t rounds, *inValue, *temp;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 	{
@@ -13,10 +13,10 @@ void insertion_sort_list(listint_t **list)
 	for (rounds = (*list)->next; rounds != NULL; rounds = temp)
 	{
 		temp = rounds->next;
-		invalue = rounds->prev;
-		while (invalue != NULL && rounds->n < invalue->n)
+		inValue = rounds->prev;
+		while (inValue != NULL && rounds->n < inValue->n)
 		{
-			swapNodes(list, &invalue, rounds);
+			swapNodes(list, &inValue, rounds);
 			print_list((const listint_t *)*list);
 		}
 	}
