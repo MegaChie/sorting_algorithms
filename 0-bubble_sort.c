@@ -23,6 +23,6 @@ void bubble_sort(int *array, size_t size)
 				goOn = false;
 			}
 		}
-		len--l
+		len--;
 	}
 }
