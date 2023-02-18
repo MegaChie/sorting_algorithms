@@ -22,7 +22,7 @@ void insertion_sort_list(listint_t **list)
 	}
 }
 
-void swapNodes(listint_t **h, listint_t **node1, listint_t node2)
+void swapNodes(listint_t **h, listint_t **node1, listint_t *node2)
 {
 	(*node1)->next = node2->next;
 	if (node2->next != NULL)
