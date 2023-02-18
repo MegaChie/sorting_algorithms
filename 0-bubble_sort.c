@@ -8,9 +8,8 @@ void bubble_sort(int *array, size_t size)
 	bool goOn = false;
 
 	if (array == NULL || size < 2)
-	{
 		return;
-	}
+
 	while (goOn == false)
 	{
 		goOn = true;
@@ -18,7 +17,7 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[count] > array[count + 1])
 			{
-				swapValues(array + count, array + count + 1);
+				swap_ints(array + count, array + count + 1);
 				print_array(array, size);
 				goOn = false;
 			}
