@@ -40,5 +40,5 @@ void swapNodes(listint_t **h, listint_t **node1, listint_t *node2)
 		*h = node2;
 	}
 	(*node1)->prev = node2;
-	*node1 = n2->prev;
+	*node1 = node2->prev;
 }
