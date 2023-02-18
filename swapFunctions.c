@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * 
+ *
  */
 void swapValues(int *a, int *b)
 {
