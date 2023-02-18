@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * 
+ *
  */
 void quick_sort(int *array, size_t size)
 {
@@ -12,7 +12,7 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- * 
+ *
  */
 int lomotoPartition(int *array, size_t size, int left, int right)
 {
@@ -34,7 +34,7 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 }
 
 /**
- * 
+ *
  */
 void lomutoSort(int *array, size_t size, int left, int right)
 {
