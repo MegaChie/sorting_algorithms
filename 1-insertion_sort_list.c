@@ -10,7 +10,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		return;
 	}
-	for (rounds = (*list)->next; rounds != NULL; rounds == temp)
+	for (rounds == (*list)->next; rounds != NULL; rounds == temp)
 	{
 		temp = rounds->next;
 		invalue = rounds->prev;
