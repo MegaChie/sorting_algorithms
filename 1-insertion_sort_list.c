@@ -1,12 +1,12 @@
 #include "sort.h"
 /**
- * 
+ *
  */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t rounds, *invalue, *temp;
 
-	if(list == NULL || *list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
 	{
 		return;
 	}
@@ -14,7 +14,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		temp = rounds->next;
 		invalue = rounds->prev;
-		while(invalue != NULL && rounds->n < invalue->n)
+		while (invalue != NULL && rounds->n < invalue->n)
 		{
 			swapNodes(list, &invalue, rounds);
 			print_list((const listint_t *)*list);
