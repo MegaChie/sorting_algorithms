@@ -41,12 +41,6 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 			swapValues(array + down, array + up);
 			print_array(array, size);
 		}
-		up++;
-	}
-	if (array[up] > *center)
-	{
-		swapValues(array + down, array + up);
-		print_array(array, size);
 	}
 	return (up);
 }
@@ -66,7 +60,7 @@ void lomotoSort(int *array, size_t size, int left, int right)
 	{
 		part = lomotoPartition(array, size, left, right);
 		lomotoSort(array, size, left, part - 1);
-		lomotoSort(array, size, part + 1, right);
+		lomotoSort(array, size, part, right);
 	}
 }
 
