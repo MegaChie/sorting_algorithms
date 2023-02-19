@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * enum bool: new definning
+ * enum bool - new definning
  * @false: is 0
  * @true: is 1
  */
