@@ -25,3 +25,15 @@ void selection_sort(int *array, size_t size)
 		}
 	}
 }
+
+/**
+ * 
+ */
+void swapvalues(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = tmp;
+}
