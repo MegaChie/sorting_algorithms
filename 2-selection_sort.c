@@ -1,6 +1,8 @@
 #include "sort.h"
 /**
- *
+ * swapvalues - check code.
+ * @a: integer pointer
+ * @b: integer pointer
  */
 void swapvalues(int *a, int *b)
 {
@@ -12,7 +14,9 @@ void swapvalues(int *a, int *b)
 }
 
 /**
- *
+ * selection_sort - check code.
+ * @array: integer pointer
+ * @size: structure variable
  */
 void selection_sort(int *array, size_t size)
 {
