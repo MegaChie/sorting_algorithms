@@ -1,5 +1,19 @@
 #include "sort.h"
 /**
+ * swapValues - check code.
+ * @a: integer pointer
+ * @b: integer pointer
+ */
+void swapValues(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+/**
  * bubble_sort - check code.
  * @array: integer pointer
  * @size: structure variable
@@ -27,18 +41,4 @@ void bubble_sort(int *array, size_t size)
 		}
 		len--;
 	}
-}
-
-/**
- * swapValues - check code.
- * @a: integer pointer
- * @b: integer pointer
- */
-void swapValues(int *a, int *b)
-{
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
 }
