@@ -1,13 +1,8 @@
 #include "sort.h"
 /**
- * void swapValues(int *a, int *b);
- * int lomotoPartition(int *array, size_t size, int left, int right);
- * void lomotoSort(int *array, size_t size, int left, int right);
- * void quick_sort(int *array, size_t size);
- */
-
-/**
- *
+ * swapValues - check code.
+ * @a: integer pointer
+ * @b: integer pointer
  */
 void swapValues(int *a, int *b)
 {
@@ -19,7 +14,12 @@ void swapValues(int *a, int *b)
 }
 
 /**
- *
+ * lomotoPartition - check code.
+ * @array: integer pointer
+ * @size: structure variable
+ * @left: integer variable
+ * @right: integer variable
+ * Return: up's value
  */
 int lomotoPartition(int *array, size_t size, int left, int right)
 {
@@ -47,7 +47,11 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 }
 
 /**
- *
+ * lomotoSort: check code.
+ * @array: integer pointer
+ * @size: structure variable
+ * @left: integer variable
+ * @right: integer variable
  */
 void lomotoSort(int *array, size_t size, int left, int right)
 {
@@ -62,7 +66,9 @@ void lomotoSort(int *array, size_t size, int left, int right)
 }
 
 /**
- *
+ * quick_sort - check code.
+ * @array: integer pointer
+ * @size: structure variable
  */
 void quick_sort(int *array, size_t size)
 {
