@@ -14,6 +14,21 @@ void swapvalues(int *a, int *b)
 /**
  *
  */
+void lomutoSort(int *array, size_t size, int left, int right)
+{
+	int part;
+
+	if (right - left > 0)
+	{
+		part = lomotoPartition(array, size, left, right);
+		lomotoSort(array, size, left, part - 1);
+		lomotoSort(array, size, part + 1, right);
+	}
+}
+
+/**
+ *
+ */
 void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
@@ -40,22 +55,7 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 				swapValues(array + down, array + up);
 				print_array(array, size);
 			}
-			up++
+			up++;
 		}
-	}
-}
-
-/**
- *
- */
-void lomutoSort(int *array, size_t size, int left, int right)
-{
-	int part;
-
-	if (right - left > 0)
-	{
-		part = lomotoPartition(array, size, left, right);
-		lomotoSort(array, size, left, part - 1);
-		lomotoSort(array, size, part + 1, right);
 	}
 }
