@@ -2,7 +2,7 @@
 /**
  *
  */
-void swapvalues(int *a, int *b)
+void swapValues(int *a, int *b)
 {
 	int temp;
 
