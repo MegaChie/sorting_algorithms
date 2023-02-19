@@ -35,5 +35,5 @@ void swapvalues(int *a, int *b)
 
 	temp = *a;
 	*a = *b;
-	*b = tmp;
+	*b = temp;
 }
