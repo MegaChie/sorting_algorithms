@@ -3,7 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * enum: new definning
+ * enum bool: new definning
+ * @false: is 0
+ * @true: is 1
  */
 typedef enum bool
 {
