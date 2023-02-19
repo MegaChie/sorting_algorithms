@@ -1,4 +1,10 @@
 #include "sort.h"
+/**
+ * swapNodes - check code.
+ * @h: structure double pointer
+ * @node1: structure double pointer
+ * @node2: structure pointer
+ */
 void swapNodes(listint_t **h, listint_t **node1, listint_t *node2)
 {
 	(*node1)->next = node2->next;
@@ -21,7 +27,8 @@ void swapNodes(listint_t **h, listint_t **node1, listint_t *node2)
 }
 
 /**
- *
+ * insertion_sort_list - check code.
+ * @list: structure double pointer
  */
 void insertion_sort_list(listint_t **list)
 {
