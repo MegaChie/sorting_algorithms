@@ -1,8 +1,4 @@
 #include "sort.h"
-void swapValues(int *a, int *b);
-int lomotoPartition(int *array, size_t size, int left, int right);
-void lomotoSort(int *array, size_t size, int left, int right);
-void quick_sort(int *array, size_t size);
 /**
  * swapValues - check code.
  * @a: integer pointer
@@ -51,7 +47,7 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 }
 
 /**
- * lomotoSort: check code.
+ * lomotoSort - check code.
  * @array: integer pointer
  * @size: structure variable
  * @left: integer variable
