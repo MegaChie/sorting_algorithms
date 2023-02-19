@@ -42,7 +42,7 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 /**
  *
  */
-void lomutoSort(int *array, size_t size, int left, int right)
+void lomotoSort(int *array, size_t size, int left, int right)
 {
 	int part;
 
