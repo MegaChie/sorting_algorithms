@@ -2,9 +2,6 @@
 #define SORTER
 #include <stdio.h>
 #include <stdlib.h>
-/**
- *
- */
 typedef enum bool
 {
 	false = 0,
