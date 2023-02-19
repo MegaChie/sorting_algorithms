@@ -1,8 +1,10 @@
 #include "sort.h"
-void swapValues(int *a, int *b);
-int lomotoPartition(int *array, size_t size, int left, int right);
-void lomotoSort(int *array, size_t size, int left, int right);
-void quick_sort(int *array, size_t size);
+/**
+ * void swapValues(int *a, int *b);
+ * int lomotoPartition(int *array, size_t size, int left, int right);
+ * void lomotoSort(int *array, size_t size, int left, int right);
+ * void quick_sort(int *array, size_t size);
+ */
 
 /**
  *
