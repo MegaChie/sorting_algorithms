@@ -1,5 +1,17 @@
 #include "sort.h"
 /**
+ * 
+ */
+void swapvalues(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  *
  */
 void selection_sort(int *array, size_t size)
@@ -24,16 +36,4 @@ void selection_sort(int *array, size_t size)
 			print_array(array, size);
 		}
 	}
-}
-
-/**
- * 
- */
-void swapvalues(int *a, int *b)
-{
-	int temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
 }
