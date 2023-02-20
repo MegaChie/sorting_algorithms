@@ -1,8 +1,8 @@
 #include "sort.h"
 /**
- * swapValue - Swap two integers in an array.
- * @a: The first integer to swap.
- * @b: The second integer to swap.
+ * swapValue - check code.
+ * @a: integer pointer
+ * @b: integer pointer
  */
 void swapValue(int *a, int *b)
 {
@@ -14,40 +14,40 @@ void swapValue(int *a, int *b)
 }
 
 /**
- * bitMerge - Sort a bitonic sequence inside an array of integers.
- * @array: An array of integers.
- * @size: The size of the array.
- * @start: The starting index of the sequence in array to sort.
- * @sequance: The size of the sequence to sort.
- * @result: The direction to sort in.
+ * bitMerge - check code.
+ * @array: integer pointer
+ * @size: structure variable
+ * @start: structure variable
+ * @sequance: structure variable
+ * @result: charecter variable
  */
 void bitMerge(int *array, size_t size, size_t start, size_t sequance,
 		char result)
 {
-	size_t i, jump = sequance / 2;
+	size_t i, hop = sequance / 2;
 
 	if (sequance > 1)
 	{
-		for (i = start; i < start + jump; i++)
+		for (i = start; i < start + hop; i++)
 		{
-			if ((result == UP && array[i] > array[i + jump]) ||
-			    (result == DOWN && array[i] < array[i + jump]))
-				swapValue(array + i, array + i + jump);
+			if ((result == UP && array[i] > array[i + hop]) ||
+			    (result == DOWN && array[i] < array[i + hop]))
+				swapValue(array + i, array + i + hop);
 		}
-		bitMerge(array, size, start, jump, result);
-		bitMerge(array, size, start + jump, jump, result);
+		bitMerge(array, size, start, hop, result);
+		bitMerge(array, size, start + hop, hop, result);
 	}
 }
 
 /**
- * bitonic_seq - Convert an array of integers into a bitonic sequence.
- * @array: An array of integers.
- * @size: The size of the array.
- * @start: The starting index of a block of the building bitonic sequence.
- * @sequance: The size of a block of the building bitonic sequence.
- * @result: The direction to sort the bitonic sequence block in.
+ * bitSequance - check code.
+ * @array: integer pointer
+ * @size: structure variable
+ * @start: structure variable
+ * @sequance: structure variable
+ * @result: charecter variable
  */
-void bitonic_seq(int *array, size_t size, size_t start, size_t sequance, char result)
+void bitSequance(int *array, size_t size, size_t start, size_t sequance, char result)
 {
 	size_t cut = sequance / 2;
 	char *str = (result == UP) ? "UP" : "DOWN";
@@ -56,29 +56,23 @@ void bitonic_seq(int *array, size_t size, size_t start, size_t sequance, char re
 	{
 		printf("Merging [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
-
-		bitonic_seq(array, size, start, cut, UP);
-		bitonic_seq(array, size, start + cut, cut, DOWN);
+		bitSequance(array, size, start, cut, UP);
+		bitSequance(array, size, start + cut, cut, DOWN);
 		bitMerge(array, size, start, sequance, result);
-
 		printf("Result [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
 	}
 }
 
 /**
- * bitonic_sort - Sort an array of integers in ascending
- *                order using the bitonic sort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
- *
- * Description: Prints the array after each swap. Only works for
- * size = 2^k where k >= 0 (ie. size equal to powers of 2).
+ * bitonic_sort - check code.
+ * @array: integer pointer
+ * @size: structure variable
  */
 void bitonic_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
 
-	bitonic_seq(array, size, 0, size, UP);
+	bitSequance(array, size, 0, size, UP);
 }
