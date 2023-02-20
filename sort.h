@@ -2,8 +2,8 @@
 #define SORTER
 #include <stdio.h>
 #include <stdlib.h>
-#define high 0
-#define low 1
+#define UP 0
+#define DOWN 1
 /**
  * enum bool - new definning
  * @false: is 0
