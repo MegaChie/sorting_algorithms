@@ -21,22 +21,23 @@ void swapValues(int *a, int *b)
  * @bits: structure variable
  * @result: charecter variable
  */
-void bitMerge(int *array, size_t size, size_t start, size_t bits, char result)
+void bitMerge(int *array, size_t size, size_t start, size_t sequance,
+		char result)
 {
-	size_t count, hop = bits / 2;
+	size_t i, hop = sequance / 2;
 
-	if (bits > 1)
+	if (sequance > 1)
 	{
-		for (count = start; count < start + hop; count++)
+		for (i = start; i < start + hop; i++)
 		{
-			if ((result == high && array[count] > array[count + hop]) ||
-				(result == low && array[count] < array[count + hop]))
+			if ((result == high && array[i] > array[i + hop]) ||
+			    (result == low && array[i] < array[i + hop]))
 			{
-				swapValues(array + count, array + count + hop);
+				swap_ints(array + i, array + i + hop);
 			}
 		}
-		bitMerge(array, size, start, hop, result);
-		bitMerge(array, size, start + hop, hop, result);
+		bitonic_merge(array, size, start, hop, result);
+		bitonic_merge(array, size, start + hop, hop, result);
 	}
 }
 
@@ -48,8 +49,7 @@ void bitMerge(int *array, size_t size, size_t start, size_t bits, char result)
  * @sequance: structure variable
  * @result: charecter variable
  */
-void bitSequance(int *array, size_t size, size_t start, size_t sequance,
-	char result)
+void bitSequance(int *array, size_t size, size_t start, size_t sequance, char result)
 {
 	size_t cut = sequance / 2;
 	char *str = (result == high) ? "high" : "low";
@@ -58,14 +58,13 @@ void bitSequance(int *array, size_t size, size_t start, size_t sequance,
 	{
 		printf("Merging [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
-		bitSequance(array, size, start, cut, high);
-		bitSequance(array, size, start + cut, cut, low);
-		bitMerge(array, size, start, sequance, result);
+		bitonic_seq(array, size, start, cut, high);
+		bitonic_seq(array, size, start + cut, cut, low);
+		bitonic_merge(array, size, start, sequance, result);
 		printf("Result [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
 	}
 }
-
 /**
  * bitonic_sort - check code.
  * @array: integer pointer
