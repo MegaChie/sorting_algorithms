@@ -69,7 +69,7 @@ void lomotoSort(int *array, size_t size, int left, int right)
  * @array: integer pointer
  * @size: structure variable
  */
-void quick_sort(int *array, size_t size)
+void quick_sort_hoare(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 	{
