@@ -1,17 +1,17 @@
 #include "sort.h"
 
-void swapValues(int *a, int *b);
-void bitMerge(int *array, size_t size, size_t start, size_t seq,
+void swap_ints(int *a, int *b);
+void bitonic_merge(int *array, size_t size, size_t start, size_t seq,
 		char flow);
-void bitSequance(int *array, size_t size, size_t start, size_t seq, char flow);
+void bitonic_seq(int *array, size_t size, size_t start, size_t seq, char flow);
 void bitonic_sort(int *array, size_t size);
 
 /**
- * swapValues - Swap two integers in an array.
+ * swap_ints - Swap two integers in an array.
  * @a: The first integer to swap.
  * @b: The second integer to swap.
  */
-void swapValues(int *a, int *b)
+void swap_ints(int *a, int *b)
 {
 	int tmp;
 
@@ -21,14 +21,14 @@ void swapValues(int *a, int *b)
 }
 
 /**
- * bitMerge - Sort a bitonic sequence inside an array of integers.
+ * bitonic_merge - Sort a bitonic sequence inside an array of integers.
  * @array: An array of integers.
  * @size: The size of the array.
  * @start: The starting index of the sequence in array to sort.
  * @seq: The size of the sequence to sort.
  * @flow: The direction to sort in.
  */
-void bitMerge(int *array, size_t size, size_t start, size_t seq,
+void bitonic_merge(int *array, size_t size, size_t start, size_t seq,
 		char flow)
 {
 	size_t i, jump = seq / 2;
@@ -39,22 +39,22 @@ void bitMerge(int *array, size_t size, size_t start, size_t seq,
 		{
 			if ((flow == highLevel && array[i] > array[i + jump]) ||
 			    (flow == lowLevel && array[i] < array[i + jump]))
-				swapValues(array + i, array + i + jump);
+				swap_ints(array + i, array + i + jump);
 		}
-		bitMerge(array, size, start, jump, flow);
-		bitMerge(array, size, start + jump, jump, flow);
+		bitonic_merge(array, size, start, jump, flow);
+		bitonic_merge(array, size, start + jump, jump, flow);
 	}
 }
 
 /**
- * bitSequance - Convert an array of integers into a bitonic sequence.
+ * bitonic_seq - Convert an array of integers into a bitonic sequence.
  * @array: An array of integers.
  * @size: The size of the array.
  * @start: The starting index of a block of the building bitonic sequence.
  * @seq: The size of a block of the building bitonic sequence.
  * @flow: The direction to sort the bitonic sequence block in.
  */
-void bitSequance(int *array, size_t size, size_t start, size_t seq, char flow)
+void bitonic_seq(int *array, size_t size, size_t start, size_t seq, char flow)
 {
 	size_t cut = seq / 2;
 	char *str = (flow == highLevel) ? "highLevel" : "lowLevel";
@@ -64,9 +64,9 @@ void bitSequance(int *array, size_t size, size_t start, size_t seq, char flow)
 		printf("Merging [%lu/%lu] (%s):\n", seq, size, str);
 		print_array(array + start, seq);
 
-		bitSequance(array, size, start, cut, highLevel);
-		bitSequance(array, size, start + cut, cut, lowLevel);
-		bitMerge(array, size, start, seq, flow);
+		bitonic_seq(array, size, start, cut, highLevel);
+		bitonic_seq(array, size, start + cut, cut, lowLevel);
+		bitonic_merge(array, size, start, seq, flow);
 
 		printf("Result [%lu/%lu] (%s):\n", seq, size, str);
 		print_array(array + start, seq);
@@ -87,5 +87,5 @@ void bitonic_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	bitSequance(array, size, 0, size, highLevel);
+	bitonic_seq(array, size, 0, size, highLevel);
 }
