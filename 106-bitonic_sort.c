@@ -33,11 +33,11 @@ void bitMerge(int *array, size_t size, size_t start, size_t sequance,
 			if ((result == high && array[i] > array[i + hop]) ||
 			    (result == low && array[i] < array[i + hop]))
 			{
-				swap_ints(array + i, array + i + hop);
+				swapValues(array + i, array + i + hop);
 			}
 		}
-		bitonic_merge(array, size, start, hop, result);
-		bitonic_merge(array, size, start + hop, hop, result);
+		bitMerge(array, size, start, hop, result);
+		bitMerge(array, size, start + hop, hop, result);
 	}
 }
 
@@ -61,7 +61,7 @@ void bitSequance(int *array, size_t size, size_t start, size_t sequance,
 		print_array(array + start, sequance);
 		bitonic_seq(array, size, start, cut, high);
 		bitonic_seq(array, size, start + cut, cut, low);
-		bitonic_merge(array, size, start, sequance, result);
+		bitMerge(array, size, start, sequance, result);
 		printf("Result [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
 	}
