@@ -48,7 +48,7 @@ void bitMerge(int *array, size_t size, size_t start, size_t bits, char result)
  * @sequance: structure variable
  * @result: charecter variable
  */
-void bitSequance (int *array, size_t size, size_t start, size_t sequance,
+void bitSequance(int *array, size_t size, size_t start, size_t sequance,
 	char result)
 {
 	size_t cut = sequance / 2;
