@@ -59,8 +59,8 @@ void bitSequance(int *array, size_t size, size_t start, size_t sequance,
 	{
 		printf("Merging [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
-		bitonic_seq(array, size, start, cut, high);
-		bitonic_seq(array, size, start + cut, cut, low);
+		bitSequance(array, size, start, cut, high);
+		bitSequance(array, size, start + cut, cut, low);
 		bitMerge(array, size, start, sequance, result);
 		printf("Result [%lu/%lu] (%s):\n", sequance, size, str);
 		print_array(array + start, sequance);
