@@ -63,7 +63,7 @@ void lomotoSort(int *array, size_t size, int left, int right)
 }
 
 /**
- * quick_sort - check code.
+ * quick_sort_hoare - check code.
  * @array: integer pointer
  * @size: structure variable
  */
