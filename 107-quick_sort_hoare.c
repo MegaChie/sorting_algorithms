@@ -26,7 +26,7 @@ int lomotoPartition(int *array, size_t size, int left, int right)
 	int center, up, down;
 
 	center = array[right];
-	for (up = left - 1; down = right + 1; up < down;)
+	for (up = left - 1, down = right + 1; up < down;)
 	{
 		do
 		{
