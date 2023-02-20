@@ -2,6 +2,8 @@
 #define SORTER
 #include <stdio.h>
 #include <stdlib.h>
+#define high 0
+#define low 1
 /**
  * enum bool - new definning
  * @false: is 0
@@ -33,4 +35,5 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
 #endif
