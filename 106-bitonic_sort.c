@@ -1,91 +1,81 @@
 #include "sort.h"
-
-void swap_ints(int *a, int *b);
-void bitonic_merge(int *array, size_t size, size_t start, size_t seq,
-		char flow);
-void bitonic_seq(int *array, size_t size, size_t start, size_t seq, char flow);
-void bitonic_sort(int *array, size_t size);
-
 /**
- * swap_ints - Swap two integers in an array.
- * @a: The first integer to swap.
- * @b: The second integer to swap.
+ * swapValues - check code.
+ * @a: integer pointer
+ * @b: integer pointer
  */
-void swap_ints(int *a, int *b)
+void swapValues(int *a, int *b)
 {
-	int tmp;
+	int temp;
 
-	tmp = *a;
+	temp = *a;
 	*a = *b;
-	*b = tmp;
+	*b = temp;
 }
 
 /**
- * bitonic_merge - Sort a bitonic sequence inside an array of integers.
- * @array: An array of integers.
- * @size: The size of the array.
- * @start: The starting index of the sequence in array to sort.
- * @seq: The size of the sequence to sort.
- * @flow: The direction to sort in.
+ * bitMerge- check code.
+ * @array: integer pointer
+ * @size: structure variable
+ * @start: structure variable
+ * @bits: structure variable
+ * @result: charecter variable
  */
-void bitonic_merge(int *array, size_t size, size_t start, size_t seq,
-		char flow)
+void bitMerge(int *array, size_t size, size_t start, size_t sequance,
+		char result)
 {
-	size_t i, jump = seq / 2;
+	size_t i, hop = sequance / 2;
 
-	if (seq > 1)
+	if (sequance > 1)
 	{
-		for (i = start; i < start + jump; i++)
+		for (i = start; i < start + hop; i++)
 		{
-			if ((flow == UP && array[i] > array[i + jump]) ||
-			    (flow == DOWN && array[i] < array[i + jump]))
-				swap_ints(array + i, array + i + jump);
+			if ((result == high && array[i] > array[i + hop]) ||
+			    (result == low && array[i] < array[i + hop]))
+			{
+				swapValues(array + i, array + i + hop);
+			}
 		}
-		bitonic_merge(array, size, start, jump, flow);
-		bitonic_merge(array, size, start + jump, jump, flow);
+		bitMerge(array, size, start, hop, result);
+		bitMerge(array, size, start + hop, hop, result);
 	}
 }
 
 /**
- * bitonic_seq - Convert an array of integers into a bitonic sequence.
- * @array: An array of integers.
- * @size: The size of the array.
- * @start: The starting index of a block of the building bitonic sequence.
- * @seq: The size of a block of the building bitonic sequence.
- * @flow: The direction to sort the bitonic sequence block in.
+ * bitSequance - check code.
+ * @array: integer pointer
+ * @size: structure variable
+ * @start: structure variable
+ * @sequance: structure variable
+ * @result: charecter variable
  */
-void bitonic_seq(int *array, size_t size, size_t start, size_t seq, char flow)
+void bitSequance(int *array, size_t size, size_t start, size_t sequance,
+	char result)
 {
-	size_t cut = seq / 2;
-	char *str = (flow == UP) ? "UP" : "DOWN";
+	size_t cut = sequance / 2;
+	char *str = (result == high) ? "high" : "low";
 
-	if (seq > 1)
+	if (sequance > 1)
 	{
-		printf("Merging [%lu/%lu] (%s):\n", seq, size, str);
-		print_array(array + start, seq);
-
-		bitonic_seq(array, size, start, cut, UP);
-		bitonic_seq(array, size, start + cut, cut, DOWN);
-		bitonic_merge(array, size, start, seq, flow);
-
-		printf("Result [%lu/%lu] (%s):\n", seq, size, str);
-		print_array(array + start, seq);
+		printf("Merging [%lu/%lu] (%s):\n", sequance, size, str);
+		print_array(array + start, sequance);
+		bitSequance(array, size, start, cut, high);
+		bitSequance(array, size, start + cut, cut, low);
+		bitMerge(array, size, start, sequance, result);
+		printf("Result [%lu/%lu] (%s):\n", sequance, size, str);
+		print_array(array + start, sequance);
 	}
 }
-
 /**
- * bitonic_sort - Sort an array of integers in ascending
- *                order using the bitonic sort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
- *
- * Description: Prints the array after each swap. Only works for
- * size = 2^k where k >= 0 (ie. size equal to powers of 2).
+ * bitonic_sort - check code.
+ * @array: integer pointer
+ * @size: structure variable
  */
 void bitonic_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
+	{
 		return;
-
-	bitonic_seq(array, size, 0, size, UP);
+	}
+	bitSequance(array, size, 0, size, high);
 }
